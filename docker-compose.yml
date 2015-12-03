@@ -1,0 +1,32 @@
+jenkinsdata:
+ build: jenkins-data
+jenkinsmaster:
+ build: jenkins-master
+ volumes_from:
+  - jenkinsdata
+ ports:
+  - "50000:50000"
+jenkinsnginx:
+ build: jenkins-nginx
+ ports:
+  - "80:80"
+ links:
+  - jenkinsmaster:jenkins-master
+slave:
+ build: jenkins-slave
+ubuntu:
+ build: jenkins-slave/ubuntu
+ user: "1000"
+ volumes_from:
+  - jenkinsdata
+ env_file:
+  - .secret
+  - slave.env
+ubuntu2:
+ build: jenkins-slave/ubuntu2
+ user: "1000"
+ volumes_from:
+  - jenkinsdata
+ env_file:
+  - .secret
+  - slave.env
