@@ -4,10 +4,10 @@ Jenkins-Docker
 Base project for distributing jenkins through docker containers in a scalable way
 
 # Prerequisites
-For MAC and Windows users 
+### For MAC and Windows users:
 Docker toolbox (https://www.docker.com/docker-toolbox)
 
-Other:
+### Other users:
 A docker installation with docker-compose installed
 
 # Setup
@@ -20,7 +20,7 @@ Step 2: Start jenkins and nginx server
 
 	$ make run
 
-Step 3: In the slave.env file enable the JENKINS_MASTER property and point it to the Jenkins HOST. After that you can start the jenkins slaves 
+Step 3: In the slave.env file enable the JENKINS_MASTER and point to the Jenkins HOST. After that you can start the jenkins slaves 
 
         $ make run-slaves
 
